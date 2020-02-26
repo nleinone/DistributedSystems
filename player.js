@@ -270,7 +270,9 @@ function createClient(connection, data)
     connection.onerror = (event) => {
         console.error("WebSocket error observed:", event);
         
-        selfGenerateAnswer(data);        
+        var opponent_answer = generate_answer();
+        console.log('Self generated fake Opponent answer: ' + opponent_answer)
+        calculate_results(string, opponent_answer)        
     };
     i = 0
     connection.onmessage = (event) => {
